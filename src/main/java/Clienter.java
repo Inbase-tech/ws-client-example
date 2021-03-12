@@ -66,11 +66,11 @@ public class Clienter {
     }
 
     private static long createExpires() {
-        return System.currentTimeMillis() / 1000 + 60;
+        return System.currentTimeMillis() + 30000;
     }
 
     private static void send(WebsocketClient websocketClient){
-        websocketClient.sendString("{ \"command\":\"subscribe\", \"engineId\":\"test-george\"}");
+        websocketClient.sendString("{\"event\":\"OpenOrder\",\"command\":\"subscribe\"}");
     }
 
     private static String encrypt(final String method, final String requestPath, final String body, final long timestamp, final String secret) throws Exception {
